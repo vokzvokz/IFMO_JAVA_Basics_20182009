@@ -38,6 +38,7 @@ public class BottleSong {
 
     public String getBottleSongLyrics() {
         //TODO
+        System.out.println("some");
         throw new UnsupportedOperationException();
     }
 }
