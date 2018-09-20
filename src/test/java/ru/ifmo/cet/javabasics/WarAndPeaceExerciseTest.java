@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.nio.file.Files.readAllLines;
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,14 +23,20 @@ class WarAndPeaceExerciseTest {
     }
 
     @Test
-    void testNoLambdas() throws IOException {
+    void testLambdas() throws IOException {
         final String source = readAllLines(Paths.get(
             "src", "main", "java", "ru", "ifmo", "cet", "javabasics", "WarAndPeaceExercise.java"
         )).stream().collect(Collectors.joining("\n"));
 
-        assertFalse(source.contains("->"));
-        assertFalse(source.contains("::"));
-        assertFalse(source.contains("stream"));
+        assertFalse(matchesRegex(source, "\\Wif\\W"));
+        assertFalse(matchesRegex(source, "\\Wfor\\W"));
+        assertFalse(matchesRegex(source, "\\Wwhile\\W"));
 
+    }
+
+    private boolean matchesRegex(String source, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(source);
+        return (matcher.find());
     }
 }
