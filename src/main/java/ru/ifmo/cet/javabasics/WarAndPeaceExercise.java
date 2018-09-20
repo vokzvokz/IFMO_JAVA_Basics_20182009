@@ -15,10 +15,6 @@ public class WarAndPeaceExercise {
         // TODO Entries in final String should be also sorted by amount and then in alphabetical order iff needed.
         // TODO Also omit any word with lengths less than 4 and frequency less than 10
 
-        for (Path path : tome34Path) {
-
-        }
-
         throw new UnsupportedOperationException();
     }
 
