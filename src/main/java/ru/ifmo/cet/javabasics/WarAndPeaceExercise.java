@@ -2,8 +2,6 @@ package ru.ifmo.cet.javabasics;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CharsetEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,15 +11,6 @@ import java.util.*;
 public class WarAndPeaceExercise {
     private static Map<String, Integer> dictionary = new TreeMap<String, Integer>();
     private static String alphabet = " qwertyuiopasdfghjklzxcvbnmMNBVCXZLKJHGFDSAPOIUYTREWQйцукенгшщзхъфывапролджэячсмитьбюёЁЮБЬТИМСЧЯЭЖДЛОРПАВЫФЪХЗЩШГНЕКУЦЙ";
-    private static String stringToFormat(String word){
-        String formatedString = "";
-        for(int i = 0; i<word.length(); i++){
-            if(alphabet.contains(Character.toString(word.charAt(i)))){
-                formatedString=formatedString+Character.toString(word.charAt(i));
-            }
-        }
-        return formatedString;
-    }
     public static String warAndPeace()  throws IOException {
         final Path tome12Path = Paths.get("src", "main", "resources", "WAP12.txt");
         final Path tome34Path = Paths.get("src", "main", "resources", "WAP34.txt");
